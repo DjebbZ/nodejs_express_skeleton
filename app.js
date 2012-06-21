@@ -1,18 +1,22 @@
+// USAGE: node app.js <clientID> <clientSecret> [exampleHost] [apiHost]
+
+
 var express = require('express');
 var querystring = require('querystring');
 var request = require('request');
 var sprintf = require('sprintf').sprintf;
 var OAuth2 = require('oauth').OAuth2;
 
-var apiBaseUrl = process.argv[5] || 'https://api.singly.com';
-
 // The port that this express app will listen on
 var port = 8043;
-var hostBaseUrl = process.argv[4] || 'http://localhost:' + port;
 
 // Your client ID and secret from http://dev.singly.com/apps
 var clientId = process.argv[2] || '';
 var clientSecret = process.argv[3] || '';
+
+var hostBaseUrl = process.argv[4] || 'http://localhost:' + port;
+var apiBaseUrl = process.argv[5] || 'https://api.singly.com';
+
 
 // Pick a secret to secure your session storage
 var sessionSecret = '42';
