@@ -27,9 +27,9 @@ $(function() {
    $('#access-token-wrapper').show();
 
    // Get the user's profiles
-   singly.get('/profiles', null, function(profiles) {
-      _.each(profiles.all, function(profile) {
-         $('#profiles').append(sprintf('<li><strong>Linked profile:</strong> %s</li>', profile));
+   singly.get('/v0/profiles', null, function(profiles) {
+      _.each(profiles, function(profile, id) {
+         $('#profiles').append(sprintf('<li><strong>Linked profile:</strong> Service: %s, id: %s</li>', id, profile));
       });
    });
 
